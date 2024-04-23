@@ -3,18 +3,34 @@
     <div class="col-12">
       <div class="sc-home__form">
         <ng-container *ngIf="loginCard; else signInTemplate">
-          <form>
+          <form [formGroup]="loginForm" (ngSubmit)="login()">
             <p-card
               styleClass="mt-10"
               header="Login"
               subheader="Faça login com sua conta existente"
             >
               <div class="sc-home__form--inputs">
-                <input type="email" pInputText placeholder="E-mail" />
-                <input type="password" pInputText placeholder="Senha" />
+                <input
+                  formControlName="email"
+                  type="email"
+                  pInputText
+                  placeholder="E-mail"
+                />
+                <input
+                  formControlName="password"
+                  type="password"
+                  pInputText
+                  placeholder="Senha"
+                />
               </div>
               <div class="sc-home__actions">
-                <button type="submit" pButton pRipple label="Login"></button>
+                <button
+                  type="submit"
+                  pButton
+                  pRipple
+                  label="Login"
+                  [disabled]="!this.loginForm.valid"
+                ></button>
                 <span class="text-red-600" (click)="loginCard = !loginCard">
                   Criar Conta
                 </span>
@@ -24,16 +40,31 @@
         </ng-container>
 
         <ng-template #signInTemplate>
-          <form>
+          <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
             <p-card
               styleClass="mt-10"
               header="Criar conta"
               subheader="Crie já sua conta gratuita!"
             >
               <div class="sc-home__form--inputs">
-                <input type="text" pInputText placeholder="Nome" />
-                <input type="email" pInputText placeholder="E-mail" />
-                <input type="password" pInputText placeholder="Senha" />
+                <input
+                  formControlName="name"
+                  type="text"
+                  pInputText
+                  placeholder="Nome"
+                />
+                <input
+                  formControlName="email"
+                  type="email"
+                  pInputText
+                  placeholder="E-mail"
+                />
+                <input
+                  formControlName="password"
+                  type="password"
+                  pInputText
+                  placeholder="Senha"
+                />
               </div>
 
               <div class="sc-home__actions">
@@ -42,11 +73,9 @@
                   pButton
                   pRipple
                   label="Criar conta"
+                  [disabled]="!this.signUpForm.valid"
                 ></button>
-                <span
-                  class="text-red-600"
-                  (click)="loginCard = !loginCard"
-                >
+                <span class="text-red-600" (click)="loginCard = !loginCard">
                   Fazer login
                 </span>
               </div>

@@ -7,7 +7,8 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: calc(100vmin + 0.5rem);
+    height: calc(100vh + 0.5rem);
+    overflow: hidden;
   }
 
   @media screen and (min-width: 1400px) {
@@ -23,7 +24,6 @@
     justify-content: center;
     text-align: center;
     flex-direction: column;
-    height: 100%;
     padding: 0 1.8rem;
 
     input {
