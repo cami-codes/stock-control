@@ -1,0 +1,49 @@
+.sc-home {
+  overflow: hidden;
+
+  .grid {
+    display: flex;
+    background-image: url("/assets/images/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: calc(100vmin + 0.5rem);
+  }
+
+  @media screen and (min-width: 1400px) {
+    .grid {
+      background-position: top;
+    }
+  }
+
+  &__form,
+  &__form--inputs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 100%;
+    padding: 0 1.8rem;
+
+    input {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    button {
+      margin-bottom: 1rem;
+    }
+
+    span {
+      font-weight: 600;
+      cursor: pointer;
+    }
+  }
+}
